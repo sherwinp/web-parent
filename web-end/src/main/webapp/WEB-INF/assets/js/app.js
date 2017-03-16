@@ -1,6 +1,6 @@
 	var app={
 		main:function(){
-			
+			jQuery.ajax = ajax;
 		}
 	};
-	app.main();
+	$(document).ready(app.main);
