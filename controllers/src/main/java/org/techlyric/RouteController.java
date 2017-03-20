@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.Locale;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.core.io.Resource;
@@ -13,6 +15,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -23,8 +26,12 @@ public class RouteController {
 		return new ModelAndView("index");
 	}
 	@RequestMapping(value="register")
-	public String register(){
-		return "index";
+	public ModelAndView register(){
+		return new ModelAndView("register");
+	}
+	@RequestMapping(value="resetpassword")
+	public ModelAndView resetpassword(HttpServletResponse response){
+		return new ModelAndView("resetpassword");
 	}
 	@RequestMapping(value="secured")
 	public ModelAndView secured(HttpServletResponse response){
@@ -32,17 +39,12 @@ public class RouteController {
 		return new ModelAndView("index");
 	}
 	@RequestMapping(value="logon")
-	public String logon(){
-		return "logon";
+	public ModelAndView logon(HttpServletRequest request, HttpServletResponse response) throws ServletException{
+		return new ModelAndView("logon");
 	}
 	@RequestMapping(value="logoff")
 	public String logoff(){
 		return "index";
-	}
-	@RequestMapping(value="j_security_check")
-	public ModelAndView security_check(HttpServletResponse response){
-		response.setStatus(200);
-		return new ModelAndView("index");
 	}
 	@RequestMapping("data")
 	public void  data(HttpServletResponse response) {
