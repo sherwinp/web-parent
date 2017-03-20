@@ -5,18 +5,33 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd http://xmlns.oracle.com/weblogic/weblogic-web-app http://xmlns.oracle.com/weblogic/weblogic-web-app/1.8/weblogic-web-app.xsd">
 	<wls:weblogic-version>12.2.1</wls:weblogic-version>
 	<wls:context-root>web-end</wls:context-root>
+	
+	<wls:security-role-assignment>
+    	<wls:role-name>Administrators</wls:role-name>
+   		<wls:externally-defined/>
+  	</wls:security-role-assignment>
+	<wls:security-role-assignment>
+    	<wls:role-name>Admin</wls:role-name>
+   		<wls:externally-defined/>
+  	</wls:security-role-assignment>
+  <wls:security-role-assignment>
+    <wls:role-name>Operator</wls:role-name>
+    <wls:externally-defined/>
+  </wls:security-role-assignment>
+ 
+	
 	<wls:container-descriptor>
-		 <wls:prefer-web-inf-classes>true</wls:prefer-web-inf-classes> 
+		<wls:prefer-web-inf-classes>true</wls:prefer-web-inf-classes>
 
-<!-- 		<wls:prefer-application-packages> -->
-<!-- 			<wls:package-name>org.slf4j.*</wls:package-name> -->
-<!-- 			<wls:package-name>org.springframework.*</wls:package-name> -->
-<!-- 			<wls:package-name>tasks.*</wls:package-name> -->
-<!-- 		</wls:prefer-application-packages> -->
+		<!-- <wls:prefer-application-packages> -->
+		<!-- <wls:package-name>org.slf4j.*</wls:package-name> -->
+		<!-- <wls:package-name>org.springframework.*</wls:package-name> -->
+		<!-- <wls:package-name>tasks.*</wls:package-name> -->
+		<!-- </wls:prefer-application-packages> -->
 
-<!-- 		<wls:prefer-application-resources> -->
-<!-- 			<wls:resource-name>*</wls:resource-name> -->
-<!-- 		</wls:prefer-application-resources> -->
-		
+		<!-- <wls:prefer-application-resources> -->
+		<!-- <wls:resource-name>*</wls:resource-name> -->
+		<!-- </wls:prefer-application-resources> -->
+
 	</wls:container-descriptor>
 </wls:weblogic-web-app>
