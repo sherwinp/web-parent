@@ -1,7 +1,7 @@
 function setMenu(item){
 	item.onclick = function(evt){
       	 var srcEl = evt.srcElement || evt.target;
-      	 console.log("clicked.");
+      	document.getElementById('category').textContent = srcEl.textContent;
     };
 }	
 var app={
