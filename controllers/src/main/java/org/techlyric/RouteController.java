@@ -19,28 +19,29 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.RedirectView;
 
-@RequestMapping("/")
 @Controller
 public class RouteController {
-	@RequestMapping(value="/index",  method={RequestMethod.GET})
-	public ModelAndView index_0(HttpServletRequest request, HttpServletResponse response, ModelAndView model){
-		return new ModelAndView("index");
-	}
-	@RequestMapping(value="/index/**",  method={RequestMethod.GET})
-	public ModelAndView index_1(HttpServletRequest request, HttpServletResponse response, ModelAndView model){
-		return new ModelAndView("index");
-	}
 	@RequestMapping(value="/index/{indx}", method={RequestMethod.GET})
 	public ModelAndView index_3( HttpServletRequest request, HttpServletResponse response, 
-			@PathVariable("indx") String indx, ModelAndView model) throws IOException{
+			@PathVariable("indx") String indx, ModelAndView model) throws IOException, ServletException{
+		ModelAndView view = new ModelAndView("index", "indx", model);
+		return view;
+	}
+	@RequestMapping(value="/index",  method={RequestMethod.GET})
+	public ModelAndView index_0(HttpServletRequest request, HttpServletResponse response, 
+			ModelAndView model){
 		return new ModelAndView("index");
 	}
+
 	@RequestMapping(value="register")
 	public ModelAndView register(){
 		return new ModelAndView("register");

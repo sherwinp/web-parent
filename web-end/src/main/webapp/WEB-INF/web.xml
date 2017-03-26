@@ -20,7 +20,7 @@
       <param-name>contextConfigLocation</param-name>
       <param-value>classpath*:META-INF/spring-context.xml</param-value>
     </init-param>
-    <load-on-startup>3</load-on-startup>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   
   <servlet-mapping>
@@ -32,7 +32,7 @@
     <servlet>
         <servlet-name>cxf</servlet-name>
         <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
+        <load-on-startup>3</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>cxf</servlet-name>
@@ -43,6 +43,11 @@
 	<welcome-file>/index.html</welcome-file>
 </welcome-file-list>
 <error-page>
+	<error-code>400</error-code>
+	<location>/WEB-INF/assets/error.jsp</location>
+</error-page>
+<error-page>
+	<error-code>500</error-code>
 	<location>/WEB-INF/assets/error.jsp</location>
 </error-page>
 

@@ -19,7 +19,8 @@
 
 	<mvc:annotation-driven />
 	<context:annotation-config />
-	<mvc:resources mapping="/assets/**" location="WEB-INF/assets/" />
+	<mvc:resources mapping="/assets/**" location="/WEB-INF/assets/" />
+	<mvc:resources mapping="/index/assets/**" location="/WEB-INF/assets/" />
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
