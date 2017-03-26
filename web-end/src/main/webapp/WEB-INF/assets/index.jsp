@@ -1,16 +1,19 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <t:wrapper><body>
-<div class="row">
 
+<div class="row">
+<form name="pform" id="pform" action="." method="post">
+<a href="${url}">here</a>
 <div class="col-3 menu">
   <ul id="navMenu">
-    <li>The Flight</li>
-    <li>The City</li>
-    <li>The Island</li>
-    <li>The Food</li>
+    <li id="1001">The Flight</li>
+    <li id="2002">The City</li>
+    <li id="3003">The Island</li>
+    <li id="4004">The Food</li>
   </ul>
 </div>
+</form>
 <div class="col-9">
   <h1 id="category">The City</h1>
   <p>Chania is the capital of the Chania region on the island of Crete. The city can be divided in two parts, the old town and the modern city.</p>

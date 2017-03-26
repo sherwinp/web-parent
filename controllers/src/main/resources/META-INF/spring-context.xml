@@ -23,7 +23,7 @@
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="WEB-INF/assets/" />
+		<property name="prefix" value="/WEB-INF/assets/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 
