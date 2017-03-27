@@ -19,9 +19,9 @@
   <p>Chania is the capital of the Chania region on the island of Crete. The city can be divided in two parts, the old town and the modern city.</p>
   <p>Resize the browser window to see how the content respond to the resizing.</p>
 </div>
+<form:hidden path="indx" value="2002"/>
 </form:form>
 </div>
 <script type="text/javascript" src="assets/js/jquery.js"></script>
-<script type="text/javascript" src="assets/js/ajax.js"></script>
 <script type="text/javascript" src="assets/js/app.js"></script>
 </body></t:wrapper>

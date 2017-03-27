@@ -32,6 +32,13 @@ import org.springframework.web.servlet.view.RedirectView;
 @Controller
 @ControllerAdvice
 public class RouteController {
+	@RequestMapping(value="/{indx}", method={RequestMethod.GET})
+	public ModelAndView index_4( HttpServletRequest request, HttpServletResponse response, 
+			@PathVariable("indx") String indx, ModelAndView model) throws IOException, ServletException{
+	    	model = new ModelAndView("index");
+	    	model.addObject("indx", indx);
+		return model;
+	}
 	@RequestMapping(value="/index/{indx}", method={RequestMethod.GET})
 	public ModelAndView index_3( HttpServletRequest request, HttpServletResponse response, 
 			@PathVariable("indx") String indx, ModelAndView model) throws IOException, ServletException{
