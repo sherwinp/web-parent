@@ -49,3 +49,7 @@ html, body {
 .menu li:hover {
     background-color: #0099cc;
 }
+
+li.active {
+    background-color: #9f99cc;
+}

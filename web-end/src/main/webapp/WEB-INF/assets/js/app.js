@@ -6,8 +6,11 @@ function setMenu(item) {
 	item.onclick = function(evt) {
 		var srcEl = evt.srcElement || evt.target;
 		var createdLink = document.createElement('a');
-
-		createdLink.setAttribute('href', window.location.href.concat('/' + srcEl.id));
+		var nhref =  srcEl.id ;
+		if( window.location.href.endsWith('index')){
+			nhref =  'index/' + srcEl.id ;
+		}
+		createdLink.setAttribute('href', nhref);
 
 		createdLink.appendChild(document.createTextNode(srcEl.textContent + ' - [' + createdLink.getAttribute('href') + ']'));
 
@@ -18,6 +21,12 @@ function setMenu(item) {
 			console.log(e);
 			e.preventDefault();
 		});
+		var navItems = Array.from(srcEl.parentNode.getElementsByClassName('active'));
+		navItems.forEach(function(item){
+			item.className = '';
+		});
+
+		srcEl.className = 'active';
 	};
 }
 var app = {

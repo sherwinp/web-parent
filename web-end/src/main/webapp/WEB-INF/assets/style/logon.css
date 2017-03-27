@@ -32,14 +32,15 @@ div.tabs {
 	overflow: hidden;
 	border: 2px solid #ccc;
 	background-color: #f1f1f1;
-	height: 3em;
+	height: 2em;
 	width: 24em;
 }
 
 div.tabs a {
 	background-color: inherit;
 	float: left;
-	margin: 1em;
+	margin-left: 1em;
+	height: 2em;
 }
 
 div.tabs a.active {
