@@ -1,6 +1,7 @@
 function windowunload(e) {
-
-	return false;
+	 var text = "The Brown Fox.";
+	 e.returnValue = text;
+	 return text;
 }
 
 function activeClick(srcEl){
@@ -46,5 +47,21 @@ var app = {
 		});
 	}
 };
-$(document).ready(app.main);
+
+function initialize(e){
+switch (document.readyState){
+  case 'complete':
+	  clearInterval(timerId);
+    // The page is fully loaded.
+    console.log('fully loaded. ');
+    app.main();
+    break;
+  default:
+	  console.log(document.readyState);
+  }
+}
+
 window.onbeforeunload = windowunload;
+var timerId = window.setInterval(initialize, 100);
+
+initialize(null);

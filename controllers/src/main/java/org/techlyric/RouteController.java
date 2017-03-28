@@ -42,13 +42,13 @@ public class RouteController {
 		return model;
 	}
 	@RequestMapping(value="/index/{indx}", method={RequestMethod.GET})
-	public ModelAndView index_3( @PathVariable("indx") String indx) throws IOException, ServletException{
-		ModelAndView view = new ModelAndView("index", "command", new PlaceDTO(indx));
+	public ModelAndView index_3(@ModelAttribute PlaceDTO place, BindingResult bindingResult) throws IOException, ServletException{
+		ModelAndView view = new ModelAndView("index", "command", place);
 		return view;
 	}
 	@RequestMapping(value="/index",  method={RequestMethod.GET})
-	public ModelAndView index_0(HttpServletRequest request, HttpServletResponse response){
-		return new ModelAndView("index");
+	public ModelAndView index_0(@ModelAttribute PlaceDTO place){
+		return new ModelAndView("index", "command", place);
 	}
 
 	@RequestMapping(value="register")
