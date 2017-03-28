@@ -18,11 +18,14 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -32,22 +35,19 @@ import org.springframework.web.servlet.view.RedirectView;
 @Controller
 @ControllerAdvice
 public class RouteController {
-	@RequestMapping(value="/{indx}", method={RequestMethod.GET})
-	public ModelAndView index_4( HttpServletRequest request, HttpServletResponse response, 
-			@PathVariable("indx") String indx, ModelAndView model) throws IOException, ServletException{
-	    	model = new ModelAndView("index");
-	    	model.addObject("indx", indx);
+	@RequestMapping(value="/{Indx}", method={RequestMethod.GET})
+	public ModelAndView index_4( @ModelAttribute PlaceDTO place, BindingResult bindingResult) throws IOException, ServletException{
+	    ModelAndView model = new ModelAndView("index");
+	    	model.addObject("command", place);
 		return model;
 	}
 	@RequestMapping(value="/index/{indx}", method={RequestMethod.GET})
-	public ModelAndView index_3( HttpServletRequest request, HttpServletResponse response, 
-			@PathVariable("indx") String indx, ModelAndView model) throws IOException, ServletException{
-		ModelAndView view = new ModelAndView("index", "indx", model);
+	public ModelAndView index_3( @PathVariable("indx") String indx) throws IOException, ServletException{
+		ModelAndView view = new ModelAndView("index", "command", new PlaceDTO(indx));
 		return view;
 	}
 	@RequestMapping(value="/index",  method={RequestMethod.GET})
-	public ModelAndView index_0(HttpServletRequest request, HttpServletResponse response, 
-			ModelAndView model){
+	public ModelAndView index_0(HttpServletRequest request, HttpServletResponse response){
 		return new ModelAndView("index");
 	}
 
