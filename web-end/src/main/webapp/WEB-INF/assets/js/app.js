@@ -45,6 +45,9 @@ var app = {
 				activeClick(item);
 			}
 		});
+		
+		////// js tree //////
+		$('#tree, #core').jstree({ plugins : ["checkbox","sort","types","wholerow"], "core" : {}, "types" : {} });
 	}
 };
 
