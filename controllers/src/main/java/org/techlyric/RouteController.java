@@ -4,12 +4,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.security.Principal;
 import java.util.Locale;
 import java.util.Optional;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.PageContext;
 
 import org.springframework.core.io.Resource;
@@ -25,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
@@ -46,7 +49,7 @@ public class RouteController {
 		ModelAndView view = new ModelAndView("index", "command", place);
 		return view;
 	}
-	@RequestMapping(value="/index",  method={RequestMethod.GET})
+	@RequestMapping(value={"/index","secured/index"},  method={RequestMethod.GET})
 	public ModelAndView index_0(@ModelAttribute PlaceDTO place){
 		return new ModelAndView("index", "command", place);
 	}
@@ -56,7 +59,7 @@ public class RouteController {
 		return new ModelAndView("register");
 	}
 	@RequestMapping(value="resetpassword")
-	public ModelAndView resetpassword(HttpServletResponse response){
+	public ModelAndView resetpassword(){
 		return new ModelAndView("resetpassword");
 	}
 	@RequestMapping(value="secured")
@@ -68,9 +71,11 @@ public class RouteController {
 	public ModelAndView logon(HttpServletRequest request, HttpServletResponse response) throws ServletException{
 		return new ModelAndView("logon");
 	}
-	@RequestMapping(value="logoff")
-	public String logoff(){
-		return "index";
+	@RequestMapping(value="secured/logoff")
+	public RedirectView logoff(HttpSession session, SessionStatus sessionStatus){
+		sessionStatus.setComplete();
+		session.invalidate();
+		return new RedirectView("index", true);
 	}
 	@RequestMapping("data")
 	public void  data(HttpServletResponse response) {

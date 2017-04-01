@@ -37,7 +37,9 @@ div.tabs {
 }
 
 div.tabs a {
-	background-color: inherit;
+	background-color: #eee;
+	border-top-left-radius  : 6px;
+    border-top-right-radius : 6px;
 	float: left;
 	margin-left: 1em;
 	height: 2em;

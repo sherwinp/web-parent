@@ -6,6 +6,7 @@
 <div class="row">
 <form:form name="pform" id="pform" action="." method="get">
 <a href="${url}">here</a>
+<a href="secured/logoff">logout</a>
 <div class="col-3 menu">
   <ul id="navMenu">
     <li class="" id="1001">The Flight</li>
@@ -21,6 +22,8 @@
 </div>
 <form:hidden path="indx" />
 </form:form>
+</div>
+<div>
 </div>
 <script type="text/javascript" src="assets/js/jquery.js"></script>
 <script type="text/javascript" src="assets/js/app.js"></script>

@@ -22,16 +22,5 @@
 	
 	<wls:container-descriptor>
 		<wls:prefer-web-inf-classes>true</wls:prefer-web-inf-classes>
-
-		<!-- <wls:prefer-application-packages> -->
-		<!-- <wls:package-name>org.slf4j.*</wls:package-name> -->
-		<!-- <wls:package-name>org.springframework.*</wls:package-name> -->
-		<!-- <wls:package-name>tasks.*</wls:package-name> -->
-		<!-- </wls:prefer-application-packages> -->
-
-		<!-- <wls:prefer-application-resources> -->
-		<!-- <wls:resource-name>*</wls:resource-name> -->
-		<!-- </wls:prefer-application-resources> -->
-
 	</wls:container-descriptor>
 </wls:weblogic-web-app>
