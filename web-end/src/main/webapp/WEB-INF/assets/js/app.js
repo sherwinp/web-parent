@@ -6,27 +6,26 @@ function windowunload(e) {
 
 function activeClick(srcEl){
 	var createdLink = document.createElement('a');
-	var nhref =  srcEl.id ;
-	if( window.location.href.endsWith('index')){
-		nhref =  'index/' + srcEl.id ;
-	}
-	createdLink.setAttribute('href', nhref);
+	createdLink.setAttribute('href', srcEl.id);
 
 	createdLink.appendChild(document.createTextNode(srcEl.textContent + ' - [' + createdLink.getAttribute('href') + ']'));
-
-	document.getElementById('category').replaceChild(createdLink, document.getElementById('category').firstChild);
+	
+	document.getElementById('category').removeChild(document.getElementById('category').getElementsByTagName('a')[0]);
+	document.getElementById('category').appendChild(createdLink);
 	$(document.getElementById('category')).find('a').on('click', function(e){
 		var link = document.getElementById('category');
 		window.location = $(link).find('a').attr('href');
 		console.log(e);
 		e.preventDefault();
 	});
+	
 	var navItems = Array.from(srcEl.parentNode.getElementsByClassName('active'));
 	navItems.forEach(function(item){
 		item.className = '';
 	});
-
 	srcEl.className = 'active';
+	
+	document.getElementById('indx').setAttribute('value', srcEl.id);
 }
 
 function setMenu(item) {

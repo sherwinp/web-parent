@@ -26,14 +26,14 @@
 	<context:annotation-config />
 	 <mvc:annotation-driven />
 	 
-<!-- 	<mvc:resources mapping="assets/**" location="/WEB-INF/assets/" /> -->
+	<mvc:resources mapping="assets/**" location="/WEB-INF/assets/" />
 
-<!-- 	<bean -->
-<!-- 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"> -->
-<!-- 		<property name="prefix" value="/WEB-INF/assets/" /> -->
-<!-- 		<property name="suffix" value=".jsp" /> -->
-<!-- 	</bean> -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/assets/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
 
-	<!-- <bean class="org.techlyric.RouteController" />  -->
+	<bean class="org.techlyric.RouteController" /> 
 	
 </beans>

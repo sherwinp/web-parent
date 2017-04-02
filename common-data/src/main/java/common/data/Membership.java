@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "USERS", schema="PUBLIC")
-@SecondaryTable(name = "GROUPMEMBERS",  schema="PUBLIC", pkJoinColumns={@PrimaryKeyJoinColumn(name = "G_MEMBER")})
+@SecondaryTable(name = "GROUPMEMBERS",  schema="PUBLIC", pkJoinColumns={@PrimaryKeyJoinColumn(name = "U_NAME")})
 public class Membership {
     @Id
     @Column(name="U_NAME")
@@ -20,6 +20,6 @@ public class Membership {
     
     @Column(name="G_NAME", table="GROUPMEMBERS", insertable=false, updatable=false)
     private String gname;
-    @Column(name="G_MEMBER", table="GROUPMEMBERS", insertable=false, updatable=false)
+    @Column(name="U_NAME", table="GROUPMEMBERS", insertable=false, updatable=false)
     private String member;
 }

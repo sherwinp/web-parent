@@ -3,7 +3,7 @@
 <t:logon><body>
 	<div id="wrap2">
 	<div id="nav" class="tabs">
-		<a class="" rel="nofollow" href="secured">Login</a>
+		<a class="" rel="nofollow" href="index">Login</a>
 		<a class="" rel="nofollow" href="register">Register</a>
 		<a class="active" rel="nofollow" href="resetpassword">Reset Password</a>
 	</div>

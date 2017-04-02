@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.PageContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -28,35 +29,46 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.RedirectView;
+import org.techlyric.service.MemberService;
 
 @Controller
 @ControllerAdvice
 public class RouteController {
+	@Autowired()
+	ApplicationContextProvider myApplicationContext;
+	
 	@RequestMapping(value="/{Indx}", method={RequestMethod.GET})
-	public ModelAndView index_4( @ModelAttribute PlaceDTO place, BindingResult bindingResult) throws IOException, ServletException{
+	public ModelAndView index_4( @ModelAttribute PlaceDTO dto, BindingResult bindingResult) throws IOException, ServletException{
 	    ModelAndView model = new ModelAndView("index");
-	    	model.addObject("command", place);
+	    	model.addObject("command", dto);
 		return model;
 	}
-	@RequestMapping(value="/index/{indx}", method={RequestMethod.GET})
-	public ModelAndView index_3(@ModelAttribute PlaceDTO place, BindingResult bindingResult) throws IOException, ServletException{
-		ModelAndView view = new ModelAndView("index", "command", place);
-		return view;
-	}
-	@RequestMapping(value={"/index","secured/index"},  method={RequestMethod.GET})
-	public ModelAndView index_0(@ModelAttribute PlaceDTO place){
-		return new ModelAndView("index", "command", place);
+	@RequestMapping(value={"/index"},  method={RequestMethod.GET})
+	public ModelAndView index_0(@ModelAttribute PlaceDTO dto){
+		return new ModelAndView("index", "command", dto);
 	}
 
-	@RequestMapping(value="register")
-	public ModelAndView register(){
-		return new ModelAndView("register");
+	@RequestMapping(value="register", method={RequestMethod.GET})
+	public ModelAndView register( @ModelAttribute RegisterDTO dto, BindingResult bindingResult){
+		return new ModelAndView("register", "command", dto);
+	}
+	@RequestMapping(value="register", method=RequestMethod.POST)
+	public ModelAndView register_1(@ModelAttribute RegisterDTO dto, Model model, BindingResult bindingResult){
+		
+		if( bindingResult.getErrorCount() == 0 ){
+			SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
+			MemberService svc = myApplicationContext.getApplicationContext().getBean(MemberService.class);
+			svc.Register( dto );
+		}
+		
+		return new ModelAndView("register", "command", dto);
 	}
 	@RequestMapping(value="resetpassword")
 	public ModelAndView resetpassword(){
@@ -71,7 +83,7 @@ public class RouteController {
 	public ModelAndView logon(HttpServletRequest request, HttpServletResponse response) throws ServletException{
 		return new ModelAndView("logon");
 	}
-	@RequestMapping(value="secured/logoff")
+	@RequestMapping(value="logoff")
 	public RedirectView logoff(HttpSession session, SessionStatus sessionStatus){
 		sessionStatus.setComplete();
 		session.invalidate();

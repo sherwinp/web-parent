@@ -12,7 +12,7 @@ public class TestRun {
         //Get service from context.
         MemberService memberService = ctx.getBean(MemberService.class);
         
-        memberService.findOne();
+        memberService.findOne("");
         
 	}
 }

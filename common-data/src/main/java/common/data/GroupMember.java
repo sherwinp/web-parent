@@ -21,6 +21,26 @@ public class GroupMember implements Serializable {
     @Id
     @Column(name="G_NAME")
     private String name;
-    @Column(name="G_MEMBER")
+    @Column(name="U_NAME")
     private String member;
+    
+    GroupMember(){};
+    
+    public GroupMember(String group, String email){
+    	this.name = group;
+    	this.member = email;
+    }
+    
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getMember() {
+		return member;
+	}
+	public void setMember(String member) {
+		this.member = member;
+	}
 }

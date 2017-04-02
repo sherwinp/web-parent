@@ -7,7 +7,7 @@
 		<div class="row">
 			<form:form name="pform" id="pform" action="." method="get">
 				<a href="${url}">here</a>
-				<a href="secured/logoff">logout</a>
+				<a href="logoff">logout</a>
 				<div class="col-3 menu">
 					<ul id="navMenu">
 						<li class="" id="1001">The Flight</li>
