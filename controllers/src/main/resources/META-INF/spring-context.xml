@@ -3,6 +3,7 @@
 	xmlns:batch="http://www.springframework.org/schema/batch"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -15,17 +16,24 @@
 	http://www.springframework.org/schema/mvc 
 	http://www.springframework.org/schema/mvc/spring-mvc.xsd
 	http://www.springframework.org/schema/task
-    http://www.springframework.org/schema/task/spring-task.xsd">
+    http://www.springframework.org/schema/task/spring-task.xsd
+    http://www.springframework.org/schema/data/jpa
+    http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-	<mvc:annotation-driven />
+	
+	<context:component-scan base-package="org.techlyric.service" />
+	
 	<context:annotation-config />
-	<mvc:resources mapping="assets/**" location="/WEB-INF/assets/" />
+	 <mvc:annotation-driven />
+	 
+<!-- 	<mvc:resources mapping="assets/**" location="/WEB-INF/assets/" /> -->
 
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/assets/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
+<!-- 	<bean -->
+<!-- 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"> -->
+<!-- 		<property name="prefix" value="/WEB-INF/assets/" /> -->
+<!-- 		<property name="suffix" value=".jsp" /> -->
+<!-- 	</bean> -->
 
-	<bean class="org.techlyric.RouteController" />
+	<!-- <bean class="org.techlyric.RouteController" />  -->
+	
 </beans>
