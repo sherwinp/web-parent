@@ -41,7 +41,7 @@ import org.techlyric.service.MemberService;
 @Controller
 @ControllerAdvice
 public class RouteController {
-	@Autowired()
+	@Autowired
 	ApplicationContextProvider myApplicationContext;
 	
 	@RequestMapping(value="/{Indx}", method={RequestMethod.GET})

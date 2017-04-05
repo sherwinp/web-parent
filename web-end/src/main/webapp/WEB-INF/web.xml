@@ -9,9 +9,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath*:META-INF/spring-context.xml,
     		classpath*:META-INF/cxf-servlet.xml, 
-    		classpath*:cxf-extension-http.xml,
-      		classpath*:cxf-extension-policy.xml,
-			classpath*:cxf-extension-ws-security.xml,</param-value>
+		</param-value>
 	</context-param>
 
 	<servlet>

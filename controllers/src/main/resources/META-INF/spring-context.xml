@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
+<beans 
+    xmlns="http://www.springframework.org/schema/beans"
 	xmlns:batch="http://www.springframework.org/schema/batch"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:task="http://www.springframework.org/schema/task"
@@ -34,6 +35,7 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+	<bean class="org.techlyric.ApplicationContextProvider" />
 	<bean class="org.techlyric.RouteController" /> 
 	
 </beans>

@@ -7,5 +7,6 @@
 </head>
 <body>
 	<p>Error: <br/> ${pageContext.errorData.throwable.message} </p>
+		
 </body>
 </html>
