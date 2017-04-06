@@ -11,6 +11,15 @@
     		classpath*:META-INF/cxf-servlet.xml, 
 		</param-value>
 	</context-param>
+	
+	<jsp-config>
+		<taglib>
+		<taglib-uri>mySection</taglib-uri>
+		<taglib-location>
+			/WEB-INF/tags/section.tld
+		</taglib-location>
+	</taglib>
+	</jsp-config>
 
 	<servlet>
 		<servlet-name>mvc</servlet-name>

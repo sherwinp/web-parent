@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
+<%@taglib uri="mySection" prefix="d" %>
 <t:wrapper>
 	<body>
 
@@ -44,16 +45,7 @@
 		<script type="text/javascript" src="assets/js/jstree/jstree.min.js"></script>
 		<script type="text/javascript" src="assets/js/app.js"></script>
 		<hr />
-		<h3>Request Scope (key==values)</h3>
-		<%
-		java.util.Enumeration<String> reqEnum = request.getAttributeNames();
-		while (reqEnum.hasMoreElements()) {
-			String s = reqEnum.nextElement();
-			out.print(s);
-			out.println("==" + request.getAttribute(s));
-		%><br />
-		<%
-		}
-		%>
+		<d:debugsection />
+
 	</body>
 </t:wrapper>

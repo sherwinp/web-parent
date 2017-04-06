@@ -1,7 +1,7 @@
 <taglib>
   <tlib-version>1.0</tlib-version>
   <jsp-version>2.0</jsp-version>
-  <short-name>Debug Section</short-name>
+  <short-name>debugsection</short-name>
   <tag>
     <name>debugsection</name>
     <tag-class>org.techlyric.DebugSectionTag</tag-class>
