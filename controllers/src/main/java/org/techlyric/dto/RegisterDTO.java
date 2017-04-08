@@ -1,4 +1,4 @@
-package org.techlyric;
+package org.techlyric.dto;
 
 public class RegisterDTO {
 	public RegisterDTO(){}

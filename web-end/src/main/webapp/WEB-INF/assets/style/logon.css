@@ -33,7 +33,6 @@ div.tabs {
 	border: 2px solid #ccc;
 	background-color: #f1f1f1;
 	height: 2em;
-	width: 24em;
 }
 
 div.tabs a {
@@ -41,8 +40,10 @@ div.tabs a {
 	border-top-left-radius  : 6px;
     border-top-right-radius : 6px;
 	float: left;
-	margin-left: 1em;
+	padding-left: .2em;
+	padding-top: .1em;
 	height: 2em;
+	width: 8em;
 }
 
 div.tabs a.active {

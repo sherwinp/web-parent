@@ -36,60 +36,61 @@ import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.RedirectView;
+import org.techlyric.dto.PlaceDTO;
+import org.techlyric.dto.RegisterDTO;
 import org.techlyric.service.MemberService;
 
 @Controller
 @ControllerAdvice
 public class RouteController {
 	@Autowired
-	ApplicationContextProvider myApplicationContext;
-	
-	@RequestMapping(value="/{Indx}", method={RequestMethod.GET})
-	public ModelAndView index_4( @ModelAttribute PlaceDTO dto, BindingResult bindingResult) throws IOException, ServletException{
-	    ModelAndView model = new ModelAndView("index");
-	    	model.addObject("command", dto);
-		return model;
+	ApplicationContextProvider applicationContextProvider;
+	@RequestMapping(value="/")
+	public RedirectView context_empty_url(){
+		return new RedirectView("index", true);
 	}
 	@RequestMapping(value={"/index"},  method={RequestMethod.GET})
 	public ModelAndView index_0(@ModelAttribute PlaceDTO dto){
 		return new ModelAndView("index", "command", dto);
 	}
-
-	@RequestMapping(value="register", method={RequestMethod.GET})
+	
+	@RequestMapping(value="/j_security_check", method=RequestMethod.POST)
+	public RedirectView security_check(){
+		return new RedirectView("index", true);
+	}
+	
+	@RequestMapping(value="/register", method={RequestMethod.GET})
 	public ModelAndView register( @ModelAttribute RegisterDTO dto, BindingResult bindingResult){
 		return new ModelAndView("register", "command", dto);
 	}
-	@RequestMapping(value="register", method=RequestMethod.POST)
+	
+	@RequestMapping(value="/register", method=RequestMethod.POST)
 	public ModelAndView register_1(@ModelAttribute RegisterDTO dto, Model model, BindingResult bindingResult){
 		
 		if( bindingResult.getErrorCount() == 0 ){
 			SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
-			MemberService svc = myApplicationContext.getApplicationContext().getBean(MemberService.class);
+			MemberService svc = applicationContextProvider.getApplicationContext().getBean(MemberService.class);
 			svc.Register( dto );
 		}
 		
 		return new ModelAndView("register", "command", dto);
 	}
-	@RequestMapping(value="resetpassword")
+	@RequestMapping(value="/resetpassword")
 	public ModelAndView resetpassword(){
 		return new ModelAndView("resetpassword");
 	}
-	@RequestMapping(value="secured")
-	public RedirectView secured(){
-	
-		return new RedirectView("index", true);
-	}
-	@RequestMapping(value="logon")
+
+	@RequestMapping(value="/logon")
 	public ModelAndView logon(HttpServletRequest request, HttpServletResponse response) throws ServletException{
 		return new ModelAndView("logon");
 	}
-	@RequestMapping(value="logoff")
+	@RequestMapping(value="/logoff")
 	public RedirectView logoff(HttpSession session, SessionStatus sessionStatus){
 		sessionStatus.setComplete();
 		session.invalidate();
 		return new RedirectView("index", true);
 	}
-	@RequestMapping("data")
+	@RequestMapping("/data")
 	public void  data(HttpServletResponse response) {
 		response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
 		try {

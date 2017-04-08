@@ -33,6 +33,8 @@ public class DebugSectionTag extends SimpleTagSupport {
 	}
 	private void formatTag(HttpSession session,java.util.Enumeration<String> attrEnums) throws JspException, IOException {
 		JspWriter out = getJspContext().getOut();
+		if( attrEnums.hasMoreElements() )
+			out.println("<hr />");
 		while (attrEnums.hasMoreElements()) {
 			String s = attrEnums.nextElement();
 			out.print(s);
