@@ -7,8 +7,8 @@
 <meta http-equiv="pragma" content="no-cache" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>demo[]</title>
-<link href="assets/style/layout.css" type="text/css" rel="stylesheet" />
-<link href="assets/js/jstree/style.min.css" type="text/css" rel="stylesheet" />
+<link href="${pageContext.servletContext.contextPath}/assets/style/layout.css" type="text/css" rel="stylesheet" />
+<link href="${pageContext.servletContext.contextPath}/assets/js/jstree/style.min.css" type="text/css" rel="stylesheet" />
 </head>
 <jsp:doBody />
 </html>

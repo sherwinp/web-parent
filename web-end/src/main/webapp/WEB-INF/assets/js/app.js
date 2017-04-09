@@ -1,3 +1,4 @@
+var contextSegment = '/web-end/';
 function windowunload(e) {
 	 var text = "The Brown Fox.";
 	 e.returnValue = text;
@@ -5,19 +6,16 @@ function windowunload(e) {
 }
 
 function activeClick(srcEl){
-	var createdLink = document.createElement('a');
-	createdLink.setAttribute('href', srcEl.id);
-
-	createdLink.appendChild(document.createTextNode(srcEl.textContent + ' - [' + createdLink.getAttribute('href') + ']'));
-	
-	document.getElementById('category').removeChild(document.getElementById('category').getElementsByTagName('a')[0]);
-	document.getElementById('category').appendChild(createdLink);
-	$(document.getElementById('category')).find('a').on('click', function(e){
-		var link = document.getElementById('category');
-		window.location = $(link).find('a').attr('href');
-		console.log(e);
+	var createdLink = document.getElementById('category').getElementsByTagName("a")[0];
+	createdLink.setAttribute('href', contextSegment + srcEl.id + '/1');
+	createdLink.textContent = srcEl.textContent;
+	createdLink.click = function(e){
 		e.preventDefault();
-	});
+		var link = document.getElementById('category');
+		var location = $(link).find('a').attr('href');
+		console.log(location);
+		window.location.href = location;
+	};
 	
 	var navItems = Array.from(srcEl.parentNode.getElementsByClassName('active'));
 	navItems.forEach(function(item){

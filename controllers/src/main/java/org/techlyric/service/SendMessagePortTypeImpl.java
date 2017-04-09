@@ -7,7 +7,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.ws.WebServiceContext;
 import javax.xml.ws.handler.MessageContext;
  
-@WebService
+@WebService(
+	portName="SendMessagePortType",
+	serviceName = "sendmessage",
+	targetNamespace="http://org.techlyric",
+	endpointInterface="org.techlyric.service.SendMessagePortType")
 public class SendMessagePortTypeImpl implements SendMessagePortType {
 	
 	@Resource

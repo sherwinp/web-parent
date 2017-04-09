@@ -13,6 +13,6 @@ public class TestRun {
         MemberService memberService = ctx.getBean(MemberService.class);
         
         memberService.findOne("");
-        
+        ctx.close();
 	}
 }
