@@ -1,8 +1,9 @@
 package org.techlyric.service;
 
+import javax.jws.WebMethod;
 import javax.jws.WebService;
 
-@WebService(targetNamespace = "http://techlyric.org")
+@WebService(targetNamespace = "http://org.techlyric")
 public interface SendMessagePortType {
-	public SendMessagePortResponse SendMessage(ExtractionMessage extract);
+	@WebMethod public SendMessagePortResponse SendMessage(ExtractionMessage extract);
 }
