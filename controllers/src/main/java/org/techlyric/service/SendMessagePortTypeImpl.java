@@ -1,6 +1,7 @@
 package org.techlyric.service;
  
 import javax.annotation.Resource;
+import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,8 +20,10 @@ public class SendMessagePortTypeImpl implements SendMessagePortType {
 	//MessageContext ctx = context.getMessageContext();
 	//HttpServletRequest request = (HttpServletRequest)ctx.get(AbstractHTTPDestination.HTTP_REQUEST);
 	//HttpServletResponse response = (HttpServletResponse)    ctx.get(AbstractHTTPDestination.HTTP_RESPONSE);
+	@WebMethod
 	@Override
 	public SendMessagePortResponse SendMessage(ExtractionMessage extract){
+	    	
 		return new SendMessagePortResponse();
 	}
 }

@@ -9,6 +9,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			classpath*:META-INF/spring-context.xml,
+			classpath*:metro-default.xml,
 		</param-value>
 	</context-param>
 	
@@ -42,22 +43,36 @@
 	<listener>
 	        <listener-class>
                 com.sun.xml.ws.transport.http.servlet.WSServletContextListener
-        </listener-class>
+        	</listener-class>
 	</listener>
 
 	<servlet>
-		<servlet-name>cxf</servlet-name>
-		<servlet-class>org.springframework.ws.transport.http.MessageDispatcherServlet</servlet-class>
+        <servlet-name>jaxws-servlet</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>classpath*:META-INF/cxf-context.xml</param-value>
 		</init-param>
-		<load-on-startup>3</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>cxf</servlet-name>
-		<url-pattern>/services/*</url-pattern>
-	</servlet-mapping>
+		<load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>jaxws-servlet</servlet-name>
+        <url-pattern>/services/*</url-pattern>
+    </servlet-mapping>
+
+<!-- 	<servlet> -->
+<!-- 		<servlet-name>cxf</servlet-name> -->
+<!-- 		<servlet-class>org.springframework.ws.transport.http.MessageDispatcherServlet</servlet-class> -->
+<!-- 		<init-param> -->
+<!-- 			<param-name>contextConfigLocation</param-name> -->
+<!-- 			<param-value>classpath*:META-INF/cxf-context.xml</param-value> -->
+<!-- 		</init-param> -->
+<!-- 		<load-on-startup>3</load-on-startup> -->
+<!-- 	</servlet> -->
+<!-- 	<servlet-mapping> -->
+<!-- 		<servlet-name>cxf</servlet-name> -->
+<!-- 		<url-pattern>/services/*</url-pattern> -->
+<!-- 	</servlet-mapping> -->
 
 	<welcome-file-list>
 		<welcome-file>index</welcome-file>
