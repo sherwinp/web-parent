@@ -172,12 +172,12 @@
 		<dependency>
 				<groupId>com.sun.xml.ws</groupId>
 				<artifactId>jaxws-rt</artifactId>
-
+				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>com.sun.xml.ws</groupId>
 				<artifactId>jaxws-tools</artifactId>
-
+				<scope>provided</scope>
 		</dependency>			
 		<dependency>
 			<groupId>javax.servlet</groupId>
