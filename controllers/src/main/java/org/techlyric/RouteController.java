@@ -27,21 +27,14 @@ import org.techlyric.service.MemberService;
 public class RouteController {
 	@Autowired
 	ApplicationContextProvider applicationContextProvider;
-	@RequestMapping(value="/")
-	public RedirectView context_empty_url(){
-		return new RedirectView("index", true);
-	}		
-	@RequestMapping(value="/{Indx}/{Tselector}",  method={RequestMethod.GET})
-	public ModelAndView index_0(@ModelAttribute PlaceDTO dto){
-		return new ModelAndView("index", "command", dto);
-	}
-	@RequestMapping(value={"/index"},  method={RequestMethod.GET})
+	
+	@RequestMapping(value={"/", "/home", "/home/{Indx}/{Tselector}"},  method={RequestMethod.GET})
 	public ModelAndView index_1(@ModelAttribute PlaceDTO dto){
-		return new ModelAndView("index", "command", dto);
+		return new ModelAndView("home", "command", dto);
 	}
 	@RequestMapping(value="/j_security_check", method=RequestMethod.POST)
 	public RedirectView security_check(){
-		return new RedirectView("index", true);
+		return new RedirectView("home", true);
 	}
 	
 	@RequestMapping(value="/register", method={RequestMethod.GET})
@@ -65,15 +58,11 @@ public class RouteController {
 		return new ModelAndView("resetpassword");
 	}
 
-	@RequestMapping(value="/logon")
-	public ModelAndView logon(HttpServletRequest request, HttpServletResponse response) throws ServletException{
-		return new ModelAndView("logon");
-	}
 	@RequestMapping(value="/logoff")
 	public RedirectView logoff(HttpSession session, SessionStatus sessionStatus){
 		sessionStatus.setComplete();
 		session.invalidate();
-		return new RedirectView("index", true);
+		return new RedirectView("home", true);
 	}
 	@RequestMapping("/data")
 	public void  data(HttpServletResponse response) {

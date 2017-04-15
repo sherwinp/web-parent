@@ -1,4 +1,4 @@
-var contextSegment = '/web-end/';
+var contextSegment = '/web-end/home/';
 function windowunload(e) {
 	 var text = "The Brown Fox.";
 	 e.returnValue = text;

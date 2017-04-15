@@ -9,7 +9,6 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			classpath*:META-INF/spring-context.xml,
-			classpath*:META-INF/spring-context-data.xml,
 			classpath*:metro-default.xml,
 		</param-value>
 	</context-param>
@@ -76,7 +75,7 @@
 <!-- 	</servlet-mapping> -->
 
 	<welcome-file-list>
-		<welcome-file>index</welcome-file>
+		<welcome-file>home.html</welcome-file>
 	</welcome-file-list>
 	<error-page>
 		<error-code>400</error-code>
@@ -106,9 +105,11 @@
 		<web-resource-collection>
 			<web-resource-name>public</web-resource-name>
 			<url-pattern>/assets/*</url-pattern>
-			<url-pattern>/resetpassword</url-pattern>
-			<url-pattern>/register</url-pattern>
 			<url-pattern>/services/*</url-pattern>
+			<url-pattern>/register/*</url-pattern>
+			<url-pattern>/resetpassword/*</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>HEAD</http-method>
 		</web-resource-collection>
 		<user-data-constraint>
 			<transport-guarantee>NONE</transport-guarantee>
@@ -119,8 +120,14 @@
 		<web-resource-collection>
 			<web-resource-name>secured</web-resource-name>
 			<url-pattern>/*</url-pattern>
+			<url-pattern>/home/*</url-pattern>
 			<http-method>GET</http-method>
+			<http-method>HEAD</http-method>
 			<http-method>POST</http-method>
+			<http-method>PATCH</http-method>
+			<http-method>PUT</http-method>
+			<http-method>DELETE</http-method>
+			<http-method>TRACE</http-method>
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>Administrators</role-name>
@@ -137,8 +144,8 @@
 		<auth-method>FORM</auth-method>
 		<realm-name>myrealm</realm-name>
 		<form-login-config>
-			<form-login-page>/logon</form-login-page>
-			<form-error-page>/logon</form-error-page>
+			<form-login-page>/WEB-INF/views/login.jsp</form-login-page>
+			<form-error-page>/WEB-INF/views/login.jsp</form-error-page>
 		</form-login-config>
 	</login-config>
 

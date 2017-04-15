@@ -25,17 +25,7 @@
 	<context:component-scan base-package="org.techlyric.service" />
 	
 	<context:annotation-config />
-	 <mvc:annotation-driven />
-	 
-	<mvc:resources mapping="assets/**" location="/WEB-INF/assets/" />
-
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/assets/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
 
 	<bean class="org.techlyric.ApplicationContextProvider" />
-	<bean class="org.techlyric.RouteController" /> 
 	
 </beans>

@@ -3,9 +3,9 @@
 <t:logon><body>
 	<div id="wrap2">
 	<div id="nav" class="tabs">
-		<a class="" rel="nofollow" href="index">Login</a>
+		<a class="" rel="nofollow" href="home">Login</a>
 		<a class="" rel="nofollow" href="register">Register</a>
-		<a class="active" rel="nofollow" href="resetpassword">Reset Password</a>
+		<a class="active" rel="nofollow" href=".">Reset Password</a>
 	</div>
 	<form id="frm" action="j_security_check" method="post">
 		<ul>
@@ -15,4 +15,7 @@
 		</ul>
 	</form>
 	</div>
+		<hr />
+ 	<d:debugsection />
+ 	</body>
 </t:logon>

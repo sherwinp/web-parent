@@ -4,8 +4,8 @@
 <t:logon><body>
 	<div id="wrap2">
 	<div id="nav" class="tabs">
-		<a class="" rel="nofollow" href="index">Login</a>
-		<a class="active" rel="nofollow" href="register">Register</a>
+		<a class="" rel="nofollow" href="home">Login</a>
+		<a class="active" rel="nofollow" href=".">Register</a>
 		<a class="" rel="nofollow" href="resetpassword">Reset Password</a>
 	</div>
 	<form:form name="pform" id="pform" action="register" method="post">
@@ -20,4 +20,7 @@
 		</ul>
 	</form:form>
 	</div>
+	<hr />
+ 	<d:debugsection />
+ 	</body>
 </t:logon>
