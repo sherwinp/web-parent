@@ -132,6 +132,15 @@
 			<artifactId>jcl-over-slf4j</artifactId>
 			<version>1.7.12</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>wsee-jaxws</artifactId>
+			<version>12.2.1.2</version>
+			<scope>system</scope>
+			<systemPath>/home/sherwinp/Oracle/Middleware/Oracle_Home/wlserver/modules/clients/com.oracle.webservices.wls.jaxws-wlswss-client.jar</systemPath>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
