@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.techlyric</groupId>
-	<artifactId>controllers</artifactId>
-	<packaging>jar</packaging>
+	<artifactId>services</artifactId>
+	<packaging>war</packaging>
 	<version>1.0.0-SNAPSHOT</version>
 
 	<properties>
@@ -27,6 +27,16 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<dependency>
+				<groupId>org.springframework.integration</groupId>
+				<artifactId>spring-integration-core</artifactId>
+				<version>4.3.5.RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.ws.security</groupId>
+				<artifactId>wss4j</artifactId>
+				<version>1.6.19</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -48,10 +58,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -69,10 +75,20 @@
 			<version>2.4.0.RELEASE</version>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-core</artifactId>
+
+		</dependency>
+		<dependency>
 			<groupId>wsdl4j</groupId>
 			<artifactId>wsdl4j</artifactId>
 			<version>1.6.3</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.ws.security</groupId>
+			<artifactId>wss4j</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
@@ -112,15 +128,6 @@
 			<artifactId>jcl-over-slf4j</artifactId>
 			<version>1.7.12</version>
 		</dependency>
-		
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>wsee-jaxws</artifactId>
-			<version>12.2.1.2</version>
-			<scope>system</scope>
-			<systemPath>/home/sherwinp/Oracle/Middleware/Oracle_Home/wlserver/modules/clients/com.oracle.webservices.wls.jaxws-wlswss-client.jar</systemPath>
-		</dependency>
-		
 	</dependencies>
 
 	<build>

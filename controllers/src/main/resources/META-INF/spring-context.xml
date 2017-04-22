@@ -22,10 +22,10 @@
 
 	<context:component-scan base-package="org.techlyric" />
 	<context:annotation-config />
-
-	<mvc:resources mapping="assets/**" location="/WEB-INF/assets/" />
 	<mvc:annotation-driven />
-
+	
+	<mvc:resources mapping="assets/**" location="/WEB-INF/assets/" />
+	
 	<bean class="org.techlyric.ApplicationContextProvider" />
 
 	<bean
