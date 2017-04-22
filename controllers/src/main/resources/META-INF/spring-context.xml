@@ -24,9 +24,9 @@
 	<context:annotation-config />
 	<mvc:annotation-driven />
 	
-	<mvc:resources mapping="assets/**" location="/WEB-INF/assets/" />
-	
 	<bean class="org.techlyric.ApplicationContextProvider" />
+		
+	<mvc:resources mapping="assets/**" location="/WEB-INF/assets/" />
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
