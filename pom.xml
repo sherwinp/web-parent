@@ -17,7 +17,7 @@
 	</properties>
 	<modules>
 		<module>controllers</module>
-		<module>services</module>
+		<module>business-logic</module>
 		<module>web-end</module>
 		<module>common-data</module>
 	</modules>
