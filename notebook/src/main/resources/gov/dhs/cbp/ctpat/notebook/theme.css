@@ -1,0 +1,8 @@
+root { 
+    display: block;
+}
+.root{
+	-fx-background-color: #456789;
+	-fx-font-family: Tahoma, Geneva, sans-serif;
+	-fx-font-size: 18px;
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<jnlp   
+    codebase="web-end/"
+    href="/assets/notebook.jnlp">  
+    <information>  
+        <title>Worksheet Notebook</title>  
+        <vendor>ctpat</vendor>  
+        <homepage href="/home"/> 
+        <description>worksheet notepad</description>
+        <icon href="notebook-icon.jpg"/> 
+         <offline-allowed />
+    </information> 
+    <security>
+    	<all-permissions/>
+    </security> 
+    <resources> 
+        <java version="1.8+"/> 
+        <jar href="/assets/ctpat-notebook.jar"/> 
+    </resources>  
+    <application-desc main-class="gov.dhs.cbp.ctpat.notebook.PaneGui"/>
+</jnlp>
