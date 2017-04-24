@@ -23,13 +23,7 @@
 		</dependencies>
 	</dependencyManagement>
 
-	<dependencies>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>21.0</version>
-		</dependency>
-		
+	<dependencies>		
 		<dependency>
 			<groupId>com.sun</groupId>
 			<artifactId>javafx</artifactId>
@@ -71,6 +65,13 @@
 							<addClasspath>true</addClasspath>
 							<mainClass>gov.dhs.cbp.ctpat.notebook.PaneGui</mainClass>
 						</manifest>
+						
+						<manifestEntries>
+							<Permissions>all-permissions</Permissions>
+							<Import-Package>com/sun/javafx/scene/control/skin/modena/modena.css,*</Import-Package>
+							<Application-Name>Worksheet Notebook</Application-Name>
+							<Codebase>*</Codebase>
+						</manifestEntries>
 					</archive>
 				</configuration>
 			</plugin>

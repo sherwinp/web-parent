@@ -25,7 +25,7 @@ public class PaneGui extends Application {
     @Override public void start(final Stage stage) throws IOException {
         stage.setTitle("GUI Pane");
         
-        URL url = this.getClass().getResource("layout.fxml");
+        URL url = new URL(this.getClass().getResource("layout.fxml").toExternalForm());
         FXMLLoader loader = new FXMLLoader(url);
         Scene scene = new Scene( loader.load(), 900, 350 );
         stage.setScene(scene);

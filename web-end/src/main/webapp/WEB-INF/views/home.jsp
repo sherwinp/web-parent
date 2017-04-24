@@ -9,6 +9,7 @@
 		<div class="row">
 			<form:form name="pform" id="pform" action="." method="post">
 				<a href="<c:url value="/"/>">here</a>
+				<a href="<c:url value="/assets/jnlp/notebook.jnlp"/>">notebook</a>
 				<a href="<c:url value="/logoff" />">logout</a>
 				<div class="col-3 menu">
 					<ul id="navMenu">
