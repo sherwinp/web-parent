@@ -8,6 +8,8 @@ import java.net.JarURLConnection;
 import java.net.URL;
 import java.util.jar.JarFile;
 
+import com.sun.javafx.scene.control.skin.modena.Style;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -28,6 +30,7 @@ public class PaneGui extends Application {
         URL url = new URL(this.getClass().getResource("layout.fxml").toExternalForm());
         FXMLLoader loader = new FXMLLoader(url);
         Scene scene = new Scene( loader.load(), 900, 350 );
+        scene.getStylesheets().add(Style.class.getResource("modena.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }

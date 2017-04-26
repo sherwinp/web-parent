@@ -96,9 +96,7 @@
 			<http-method>TRACE</http-method>
 		</web-resource-collection>
 		<auth-constraint>
-			<role-name>Administrators</role-name>
-			<role-name>Admin</role-name>
-			<role-name>Operator</role-name>
+			<role-name>Operators</role-name>
 		</auth-constraint>
 
 		<user-data-constraint>
