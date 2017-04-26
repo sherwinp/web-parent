@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>  
-<jnlp href="https://zed:7002/web-end/assets/jnlp/notebook.jnlp">  
+<jnlp href="http://zed:8080/web-end/assets/jnlp/notebook.jnlp">  
     <information>  
         <title>Worksheet Notebook</title>  
         <vendor>ctpat</vendor>  
@@ -13,7 +13,7 @@
     </security> 
     <resources> 
         <java version="1.8+"/> 
-        <jar href="https://zed:7002/web-end/assets/jnlp/notebook.jar"/>
+        <jar href="http://zed:8080/web-end/assets/jnlp/notebook.jar"/>
     </resources>  
     <application-desc name="Worksheet Notebook" main-class="gov.dhs.cbp.ctpat.notebook.PaneGui"/>
 </jnlp>
