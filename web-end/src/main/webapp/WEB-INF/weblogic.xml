@@ -7,11 +7,7 @@
 	<wls:context-root>web-end</wls:context-root>
 
 	<wls:security-role-assignment>
-		<wls:role-name>Administrators</wls:role-name>
-		<wls:externally-defined />
-	</wls:security-role-assignment>
-	<wls:security-role-assignment>
-		<wls:role-name>Admin</wls:role-name>
+		<wls:role-name>Administrator</wls:role-name>
 		<wls:externally-defined />
 	</wls:security-role-assignment>
 	<wls:security-role-assignment>

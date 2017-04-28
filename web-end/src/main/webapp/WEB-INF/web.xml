@@ -44,11 +44,11 @@
 
 	<error-page>
 		<error-code>400</error-code>
-		<location>/WEB-INF/assets/error.jsp</location>
+		<location>/WEB-INF/views/error.jsp</location>
 	</error-page>
 	<error-page>
 		<error-code>500</error-code>
-		<location>/WEB-INF/assets/error.jsp</location>
+		<location>/WEB-INF/views/error.jsp</location>
 	</error-page>
 
 	<resource-ref>
@@ -58,10 +58,7 @@
 	</resource-ref>
 
 	<security-role>
-		<role-name>Administrators</role-name>
-	</security-role>
-	<security-role>
-		<role-name>Admin</role-name>
+		<role-name>Administrator</role-name>
 	</security-role>
 	<security-role>
 		<role-name>Operator</role-name>
@@ -96,7 +93,7 @@
 			<http-method>TRACE</http-method>
 		</web-resource-collection>
 		<auth-constraint>
-			<role-name>Operators</role-name>
+			<role-name>Operator</role-name>
 		</auth-constraint>
 
 		<user-data-constraint>
