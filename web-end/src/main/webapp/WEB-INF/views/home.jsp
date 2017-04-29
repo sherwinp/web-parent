@@ -49,7 +49,7 @@
 				</div>
 				<div class="col-9">
 					<h1 id="category">
-						<a href="2002/1">The City - [2002]</a>
+						<a href="home/2002/1">The City - [2002]</a>
 					</h1>
 					<p>Chania is the capital of the Chania region on the island of
 						Crete. The city can be divided in two parts, the old town and the

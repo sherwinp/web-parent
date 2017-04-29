@@ -1,13 +1,10 @@
 var contextSegment = '/web-end/home/';
 function windowunload(e) {
-	 var text = "The Brown Fox.";
-	 e.returnValue = text;
-	 return text;
 }
 
-function activeClick(srcEl){
+function activeClick(srcEl, item_slct){
 	var createdLink = document.getElementById('category').getElementsByTagName("a")[0];
-	createdLink.setAttribute('href', contextSegment + srcEl.id + '/1');
+	createdLink.setAttribute('href', contextSegment + srcEl.id + '/' + item_slct);
 	createdLink.textContent = srcEl.textContent;
 	createdLink.click = function(e){
 		e.preventDefault();
@@ -28,12 +25,21 @@ function activeClick(srcEl){
 
 function setMenu(item) {
 	item.onclick = function(evt){
-		activeClick(evt.srcElement || evt.target);
+		var item_slct = $('#tree, #core').jstree('get_selected', false)[0];
+		item_slct = item_slct===undefined?'1':item_slct;
+		activeClick(evt.srcElement || evt.target, item_slct);
 	}
 }
 
 var app = {
 	main : function() {
+		
+		////// js tree //////
+		$('#tree, #core').jstree({ plugins : ["checkbox","sort","types","wholerow"], "core" : {"multiple" : false}, "types" : {} })
+		.on("changed.jstree", function(evt, data){
+			$('input[name="tselector"]').val( data.node.id );
+		});
+		
 		var tablinks = Array.from(document.getElementById('navMenu').children);
 		tablinks.forEach(setMenu);
 		var selctd = document.getElementById('indx').value;
@@ -41,10 +47,8 @@ var app = {
 			if(item.id == selctd){
 				activeClick(item);
 			}
-		});
-		
-		////// js tree //////
-		$('#tree, #core').jstree({ plugins : ["checkbox","sort","types","wholerow"], "core" : {}, "types" : {} });
+		});		
+
 	}
 };
 
