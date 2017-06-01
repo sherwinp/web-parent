@@ -5,8 +5,8 @@
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 	http://www.springframework.org/schema/web-services http://www.springframework.org/schema/web-services/web-services.xsd">
 
-
 	<context:component-scan base-package="org.techlyric.service" />
+	
 	<bean
 		class="org.springframework.ws.transport.http.WsdlDefinitionHandlerAdapter">
 		<property name="transformLocations" value="true" />

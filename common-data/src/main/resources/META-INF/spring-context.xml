@@ -12,9 +12,11 @@
     http://www.springframework.org/schema/data/jpa
     http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
     
-
+	<context:component-scan base-package="org.techlyric.service, common-repository, common-data" />
 	<context:annotation-config />
 	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	<jpa:repositories base-package="common-repository, common-data"/>
 	
   	<bean id="dataSource.jndi" class="org.springframework.jndi.JndiObjectFactoryBean" scope="singleton">
         <property name="jndiName" value="jdbc/demodb"/>

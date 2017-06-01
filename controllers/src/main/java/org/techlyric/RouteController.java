@@ -22,7 +22,8 @@ import org.springframework.web.servlet.view.RedirectView;
 import org.techlyric.dto.PlaceDTO;
 import org.techlyric.dto.RegisterDTO;
 import org.techlyric.service.Download;
-import org.techlyric.service.MemberService;
+import org.techlyric.service.RegisterUserService;
+import org.techlyric.service.SchemaInfo;
 
 @Controller
 @ControllerAdvice
@@ -50,7 +51,7 @@ public class RouteController {
 
 		if (bindingResult.getErrorCount() == 0) {
 			SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
-			MemberService svc = ApplicationContextProvider.getApplicationContext().getBean(MemberService.class);
+			RegisterUserService svc = ApplicationContextProvider.getApplicationContext().getBean(RegisterUserService.class);
 			svc.Register(dto);
 		}
 
@@ -84,16 +85,18 @@ public class RouteController {
 			@PathVariable("type") String type) throws Exception {
 		Download download = (Download) request.getSession().getAttribute("download_progress");
 
-		response.setContentType("application/json");
+		response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
 		response.setIntHeader("download_progress", download != null ? download.GetDone() : -1);
 
 	}
 
-	@RequestMapping("/data")
+	@RequestMapping(value="/api", produces={MediaType.APPLICATION_JSON_UTF8_VALUE})
 	public void data(HttpServletResponse response) {
 		response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
+		
 		try {
-			response.getWriter().write("{\"Name\":50}");
+			SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
+			response.getWriter().write(String.format("{\"_links\": { \"self\": { \"href\": \"%s/api/\"  }  }, \"id\":\"api\", \"name\": \"api\" }", "http://zed:7001"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

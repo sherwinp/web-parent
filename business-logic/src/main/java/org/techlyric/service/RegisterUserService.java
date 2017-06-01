@@ -22,17 +22,10 @@ import common.repository.UserRepository;
 
 
 @Service
-public class MemberService {
-	private final static Logger LOGGER = Logger.getLogger(MemberService.class.getName());
+public class RegisterUserService {
+	private final static Logger LOGGER = Logger.getLogger(RegisterUserService.class.getName());
 	@PersistenceContext(unitName="demodb")
 	private EntityManager entityManager;
-
-	@Transactional(readOnly = true)
-	public Membership findOne(String uname) {
-		MembershipRepository membershipRepository=null;
-		membershipRepository = new JpaRepositoryFactory(entityManager).getRepository(MembershipRepository.class);
-		return membershipRepository.findOne(uname);
-	}
 	
 	@Transactional
 	public void Register(RegisterDTO dto){
@@ -44,5 +37,6 @@ public class MemberService {
 		userRepository.save(users);
 		
 		entityManager.persist(new GroupMember("Operators", dto.getEmail_address()));
+		entityManager.persist(new GroupMember("Operator", dto.getEmail_address()));
 	}
 }

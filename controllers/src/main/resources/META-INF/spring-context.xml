@@ -20,12 +20,14 @@
     http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
 
-	<context:component-scan base-package="org.techlyric" />
+	<context:component-scan base-package="org.techlyric, org.techlyric.service" />
 	<context:annotation-config />
 	<mvc:annotation-driven />
 	
 	<bean class="org.techlyric.ApplicationContextProvider" />
-		
+	
+	<jpa:repositories base-package="comman-repository, common-data" />
+	
 	<mvc:resources mapping="assets/**" location="/WEB-INF/assets/" />
 
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

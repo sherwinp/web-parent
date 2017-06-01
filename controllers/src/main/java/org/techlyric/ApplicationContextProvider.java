@@ -3,8 +3,10 @@ package org.techlyric;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
+@Configuration
 @Component
 public class ApplicationContextProvider implements ApplicationContextAware{
 

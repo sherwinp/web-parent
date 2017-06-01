@@ -38,8 +38,8 @@
     -->
     <Resource auth="Container" description="User database that can be updated and saved" factory="org.apache.catalina.users.MemoryUserDatabaseFactory" name="UserDatabase" pathname="conf/tomcat-users.xml" type="org.apache.catalina.UserDatabase"/>
   
-  	<Resource auth="Container" description="User database" driverClassName="org.hsqldb.jdbcDriver" name="jdbc/demodb" 
-  	type="javax.sql.DataSource" url="jdbc:hsqldb:file:/home/sherwinp/domains/one/demodb;" username="sa" password=""/>
+  	<Resource auth="Container" description="User database" driverClassName="org.h2.Driver" name="jdbc/demodb" 
+  	type="javax.sql.DataSource" url="jdbc:h2:file:/home/sherwinp/domains/one/datadb/demodb;" username="sa" password=""/>
   
   </GlobalNamingResources>
 
